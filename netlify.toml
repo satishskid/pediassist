@@ -1,0 +1,37 @@
+[build]
+  command = "pip install -r requirements.txt && python -m pediassist.web_app"
+  publish = "dist/"
+  functions = "netlify/functions/"
+
+[build.environment]
+  PYTHON_VERSION = "3.9"
+  NODE_VERSION = "18"
+
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/app"
+  status = 200
+
+[context.production]
+  environment = { ENVIRONMENT = "production" }
+
+[context.deploy-preview]
+  environment = { ENVIRONMENT = "staging" }
+
+[context.branch-deploy]
+  environment = { ENVIRONMENT = "development" }
+
+# Custom domain configuration
+[context.production.headers]
+  for = "/*"
+  [context.production.headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Cache static assets
+[[headers]]
+  for = "/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"

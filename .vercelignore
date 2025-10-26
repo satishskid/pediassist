@@ -1,0 +1,43 @@
+# Development files
+.git/
+.gitignore
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+
+# Environment
+.env
+.venv/
+venv/
+
+# Documentation
+*.md
+!README.md
+!DEPLOYMENT.md
+
+# Docker files (not needed for Vercel)
+Dockerfile
+docker-compose.yml
+docker/
+
+# Test files
+test_*.py
+*test*.py
+
+# Local data
+*.log
+*.sqlite
+*.db
+
+# Cloudflare setup files (not needed for Vercel)
+cloudflare_*
+*cloudflare*
+*access*
+*setup*.py
+
+# Backup files
+*.backup
+*.bak

@@ -219,7 +219,17 @@
       "request_type": "treatment_plan",
       "success": true,
       "response_time_ms": null
+    },
+    {
+      "timestamp": "2025-10-26T13:55:37.958394",
+      "provider": "ollama",
+      "model": "qwen3:8b",
+      "tokens_used": 2414,
+      "cost_usd": 0.02414,
+      "request_type": "treatment_plan",
+      "success": true,
+      "response_time_ms": null
     }
   ],
-  "last_updated": "2025-10-26T11:05:21.267774"
+  "last_updated": "2025-10-26T13:55:37.958607"
 }

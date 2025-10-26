@@ -76,3 +76,4 @@ htmlcov/
 *.pem
 *.key
 *.crt
+.vercel

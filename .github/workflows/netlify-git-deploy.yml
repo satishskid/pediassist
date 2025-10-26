@@ -1,0 +1,81 @@
+name: Deploy to Netlify via Git
+
+on:
+  push:
+    branches: [ main, master, develop ]
+  pull_request:
+    branches: [ main, master ]
+
+env:
+  NETLIFY_SITE_NAME: pediassist-netlify
+  NETLIFY_CUSTOM_DOMAIN: pediassist-netlify.ap
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+        cache: 'pip'
+        
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements-netlify.txt
+        
+    - name: Test application
+      run: |
+        python -c "import pediassist; print('✅ PediAssist imports successfully')"
+        python -c "from pediassist.web_app import app; print('✅ Flask app loads successfully')"
+        
+    - name: Build application
+      run: |
+        echo "Building PediAssist for Netlify..."
+        # Create build artifacts if needed
+        mkdir -p dist
+        cp -r pediassist dist/ || true
+        cp -r templates dist/ || true
+        cp -r static dist/ || true
+        cp *.py dist/ || true
+        cp requirements-netlify.txt dist/ || true
+        
+    - name: Deploy to Netlify
+      uses: nwtgck/actions-netlify@v2.0
+      with:
+        publish-dir: './'
+        production-branch: main
+        production-deploy: ${{ github.ref == 'refs/heads/main' }}
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        deploy-message: "Deploy from Git: ${{ github.event.head_commit.message }}"
+        enable-pull-request-comment: true
+        enable-commit-comment: true
+        overwrites-pull-request-comment: true
+        netlify-config-path: ./netlify.toml
+        alias: ${{ github.ref == 'refs/heads/main' && 'pediassist-netlify' || '' }}
+      env:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        
+    - name: Configure custom domain
+      if: github.ref == 'refs/heads/main'
+      run: |
+        echo "🌐 Setting up custom domain: ${{ env.NETLIFY_CUSTOM_DOMAIN }}"
+        echo "Please configure the custom domain in your Netlify dashboard"
+        echo "Site Settings → Domain Management → Add Custom Domain → ${{ env.NETLIFY_CUSTOM_DOMAIN }}"
+        
+    - name: Deployment Summary
+      run: |
+        echo "🚀 Deployment Summary:"
+        echo "Repository: ${{ github.repository }}"
+        echo "Branch: ${{ github.ref }}"
+        echo "Commit: ${{ github.sha }}"
+        echo "Custom Domain: ${{ env.NETLIFY_CUSTOM_DOMAIN }}"
+        echo ""
+        echo "✅ Deployment completed successfully!"
+        echo "🌐 Your app will be available at: https://${{ env.NETLIFY_CUSTOM_DOMAIN }}"
