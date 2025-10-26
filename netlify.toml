@@ -21,10 +21,10 @@
 [context.branch-deploy]
   environment = { ENVIRONMENT = "development" }
 
-# Custom domain configuration
-[context.production.headers]
+# Security headers for production
+[[headers]]
   for = "/*"
-  [context.production.headers.values]
+  [headers.values]
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
