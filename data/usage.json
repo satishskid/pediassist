@@ -1,0 +1,225 @@
+{
+  "records": [
+    {
+      "timestamp": "2025-10-25T16:39:09.266358",
+      "provider": "ollama",
+      "model": "phi:latest",
+      "tokens_used": 1956,
+      "cost_usd": 0.01956,
+      "request_type": "treatment_plan",
+      "success": true,
+      "response_time_ms": null
+    },
+    {
+      "timestamp": "2025-10-25T16:52:15.160836",
+      "provider": "ollama",
+      "model": "phi:latest",
+      "tokens_used": 1559,
+      "cost_usd": 0.015590000000000001,
+      "request_type": "treatment_plan",
+      "success": true,
+      "response_time_ms": null
+    },
+    {
+      "timestamp": "2025-10-25T16:52:39.393371",
+      "provider": "ollama",
+      "model": "phi:latest",
+      "tokens_used": 1673,
+      "cost_usd": 0.016730000000000002,
+      "request_type": "treatment_plan",
+      "success": true,
+      "response_time_ms": null
+    },
+    {
+      "timestamp": "2025-10-26T06:28:26.636557",
+      "provider": "ollama",
+      "model": "phi:latest",
+      "tokens_used": 1661,
+      "cost_usd": 0.01661,
+      "request_type": "treatment_plan",
+      "success": true,
+      "response_time_ms": null
+    },
+    {
+      "timestamp": "2025-10-26T06:28:49.178015",
+      "provider": "ollama",
+      "model": "phi:latest",
+      "tokens_used": 1757,
+      "cost_usd": 0.017570000000000002,
+      "request_type": "treatment_plan",
+      "success": true,
+      "response_time_ms": null
+    },
+    {
+      "timestamp": "2025-10-26T06:29:21.802236",
+      "provider": "ollama",
+      "model": "phi:latest",
+      "tokens_used": 1872,
+      "cost_usd": 0.01872,
+      "request_type": "treatment_plan",
+      "success": true,
+      "response_time_ms": null
+    },
+    {
+      "timestamp": "2025-10-26T06:29:42.115285",
+      "provider": "ollama",
+      "model": "phi:latest",
+      "tokens_used": 1644,
+      "cost_usd": 0.01644,
+      "request_type": "treatment_plan",
+      "success": true,
+      "response_time_ms": null
+    },
+    {
+      "timestamp": "2025-10-26T06:30:08.180872",
+      "provider": "ollama",
+      "model": "phi:latest",
+      "tokens_used": 1595,
+      "cost_usd": 0.015950000000000002,
+      "request_type": "treatment_plan",
+      "success": true,
+      "response_time_ms": null
+    },
+    {
+      "timestamp": "2025-10-26T06:30:31.374809",
+      "provider": "ollama",
+      "model": "phi:latest",
+      "tokens_used": 1609,
+      "cost_usd": 0.01609,
+      "request_type": "treatment_plan",
+      "success": true,
+      "response_time_ms": null
+    },
+    {
+      "timestamp": "2025-10-26T06:31:07.268806",
+      "provider": "ollama",
+      "model": "phi:latest",
+      "tokens_used": 1769,
+      "cost_usd": 0.01769,
+      "request_type": "treatment_plan",
+      "success": true,
+      "response_time_ms": null
+    },
+    {
+      "timestamp": "2025-10-26T06:31:36.384841",
+      "provider": "ollama",
+      "model": "phi:latest",
+      "tokens_used": 1633,
+      "cost_usd": 0.01633,
+      "request_type": "treatment_plan",
+      "success": true,
+      "response_time_ms": null
+    },
+    {
+      "timestamp": "2025-10-26T06:32:00.739885",
+      "provider": "ollama",
+      "model": "phi:latest",
+      "tokens_used": 1638,
+      "cost_usd": 0.016380000000000002,
+      "request_type": "treatment_plan",
+      "success": true,
+      "response_time_ms": null
+    },
+    {
+      "timestamp": "2025-10-26T06:32:30.939736",
+      "provider": "ollama",
+      "model": "phi:latest",
+      "tokens_used": 1643,
+      "cost_usd": 0.01643,
+      "request_type": "treatment_plan",
+      "success": true,
+      "response_time_ms": null
+    },
+    {
+      "timestamp": "2025-10-26T06:32:53.932311",
+      "provider": "ollama",
+      "model": "phi:latest",
+      "tokens_used": 1579,
+      "cost_usd": 0.015790000000000002,
+      "request_type": "treatment_plan",
+      "success": true,
+      "response_time_ms": null
+    },
+    {
+      "timestamp": "2025-10-26T06:40:04.786858",
+      "provider": "ollama",
+      "model": "phi:latest",
+      "tokens_used": 1598,
+      "cost_usd": 0.01598,
+      "request_type": "treatment_plan",
+      "success": true,
+      "response_time_ms": null
+    },
+    {
+      "timestamp": "2025-10-26T10:45:38.155355",
+      "provider": "ollama",
+      "model": "qwen3:8b",
+      "tokens_used": 2285,
+      "cost_usd": 0.022850000000000002,
+      "request_type": "treatment_plan",
+      "success": true,
+      "response_time_ms": null
+    },
+    {
+      "timestamp": "2025-10-26T10:48:05.446571",
+      "provider": "ollama",
+      "model": "qwen3:8b",
+      "tokens_used": 2444,
+      "cost_usd": 0.024440000000000003,
+      "request_type": "treatment_plan",
+      "success": true,
+      "response_time_ms": null
+    },
+    {
+      "timestamp": "2025-10-26T10:51:19.463314",
+      "provider": "ollama",
+      "model": "qwen3:8b",
+      "tokens_used": 2249,
+      "cost_usd": 0.022490000000000003,
+      "request_type": "treatment_plan",
+      "success": true,
+      "response_time_ms": null
+    },
+    {
+      "timestamp": "2025-10-26T10:54:07.185244",
+      "provider": "ollama",
+      "model": "qwen3:8b",
+      "tokens_used": 2444,
+      "cost_usd": 0.024440000000000003,
+      "request_type": "treatment_plan",
+      "success": true,
+      "response_time_ms": null
+    },
+    {
+      "timestamp": "2025-10-26T10:56:37.680303",
+      "provider": "ollama",
+      "model": "qwen3:8b",
+      "tokens_used": 2444,
+      "cost_usd": 0.024440000000000003,
+      "request_type": "treatment_plan",
+      "success": true,
+      "response_time_ms": null
+    },
+    {
+      "timestamp": "2025-10-26T11:00:29.483698",
+      "provider": "ollama",
+      "model": "qwen3:8b",
+      "tokens_used": 2236,
+      "cost_usd": 0.02236,
+      "request_type": "treatment_plan",
+      "success": true,
+      "response_time_ms": null
+    },
+    {
+      "timestamp": "2025-10-26T11:05:21.267707",
+      "provider": "ollama",
+      "model": "qwen3:8b",
+      "tokens_used": 2412,
+      "cost_usd": 0.024120000000000003,
+      "request_type": "treatment_plan",
+      "success": true,
+      "response_time_ms": null
+    }
+  ],
+  "last_updated": "2025-10-26T11:05:21.267774"
+}

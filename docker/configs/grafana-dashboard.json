@@ -1,0 +1,54 @@
+{
+  "dashboard": {
+    "id": null,
+    "title": "PediAssist Monitoring",
+    "tags": ["pediassist"],
+    "timezone": "browser",
+    "panels": [
+      {
+        "title": "Application Requests",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "rate(pediassist_requests_total[5m])",
+            "legendFormat": "Requests/sec"
+          }
+        ]
+      },
+      {
+        "title": "Response Time",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "histogram_quantile(0.95, rate(pediassist_request_duration_seconds_bucket[5m]))",
+            "legendFormat": "95th percentile"
+          }
+        ]
+      },
+      {
+        "title": "Error Rate",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "rate(pediassist_errors_total[5m])",
+            "legendFormat": "Errors/sec"
+          }
+        ]
+      },
+      {
+        "title": "Database Connections",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "pediassist_db_connections_active",
+            "legendFormat": "Active connections"
+          }
+        ]
+      }
+    ],
+    "time": {
+      "from": "now-1h",
+      "to": "now"
+    }
+  }
+}

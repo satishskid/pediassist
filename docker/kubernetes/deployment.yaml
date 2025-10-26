@@ -1,0 +1,82 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pediassist
+  namespace: pediassist
+  labels:
+    app: pediassist
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: pediassist
+  template:
+    metadata:
+      labels:
+        app: pediassist
+    spec:
+      containers:
+      - name: pediassist
+        image: pediassist:latest
+        ports:
+        - containerPort: 8000
+        env:
+        - name: PEDIASIST_ENV
+          value: "production"
+        - name: PEDIASIST_DB_PATH
+          value: "/app/data/pediassist.db"
+        - name: PEDIASIST_ENCRYPTION_KEY
+          valueFrom:
+            secretKeyRef:
+              name: pediassist-secrets
+              key: encryption-key
+        - name: PEDIASIST_JWT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: pediassist-secrets
+              key: jwt-secret
+        volumeMounts:
+        - name: data-volume
+          mountPath: /app/data
+        - name: logs-volume
+          mountPath: /app/logs
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 5
+          periodSeconds: 5
+      volumes:
+      - name: data-volume
+        persistentVolumeClaim:
+          claimName: pediassist-data
+      - name: logs-volume
+        persistentVolumeClaim:
+          claimName: pediassist-logs
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pediassist-service
+  namespace: pediassist
+spec:
+  selector:
+    app: pediassist
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8000
+  type: ClusterIP
