@@ -1,5 +1,5 @@
 [build]
-  command = "pip install -r requirements-netlify.txt && python -c \"from pediassist.web_app import app; print('Build successful')\""
+  command = "pip install -r requirements-netlify.txt --force-reinstall && python -c \"from pediassist.web_app import app; print('FastAPI app imported successfully')\""
   publish = "dist/"
   functions = "netlify/functions/"
 
