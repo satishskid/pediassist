@@ -1,0 +1,31 @@
+# Fly.io Deployment Configuration
+app = "pediassist"
+primary_region = "iad"  # Washington DC (change to your preferred region)
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  ENVIRONMENT = "production"
+  LLM_PROVIDER = "ollama"
+  MODEL = "llama2"
+
+[http_service]
+  internal_port = 8000
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ["app"]
+
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 1
+  memory_mb = 512
+
+[[mounts]]
+  source = "data"
+  destination = "/app/data"
+
+[processes]
+  app = "python -m pediassist.web_app"

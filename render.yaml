@@ -1,0 +1,24 @@
+# Render Deployment Configuration
+services:
+  - type: web
+    name: pediassist
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python -m pediassist.web_app"
+    envVars:
+      - key: ENVIRONMENT
+        value: production
+      - key: DATABASE_URL
+        value: postgresql://pediassist:${DATABASE_PASSWORD}@postgres:5432/pediassist
+      - key: SECRET_KEY
+        generateValue: true
+      - key: LLM_PROVIDER
+        value: ollama
+      - key: MODEL
+        value: llama2
+      
+  - type: pserv
+    name: postgres
+    env: postgres
+    plan: starter # Free tier available
+    ipAllowList: [] # No restrictions for web service access

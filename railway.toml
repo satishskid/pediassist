@@ -1,0 +1,22 @@
+# Railway Deployment Configuration
+# This file configures Railway deployment with all features preserved
+
+# Build phase
+build:
+  builder: python
+  buildCommand: pip install -r requirements.txt
+
+# Runtime phase
+run:
+  startCommand: python -m pediassist.web_app
+  healthcheckPath: /
+  healthcheckTimeout: 300
+  restartPolicyType: ON_FAILURE
+  restartMaxRetries: 10
+
+# Environment variables (set these in Railway dashboard)
+# ENVIRONMENT=production
+# SECRET_KEY=(generate random)
+# DATABASE_URL=(Railway provides PostgreSQL URL)
+# LLM_PROVIDER=ollama
+# MODEL=llama2
