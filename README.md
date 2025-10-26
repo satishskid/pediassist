@@ -74,6 +74,17 @@ docker-compose up -d
 python pediassist.py
 ```
 
+### Quick Test
+```bash
+# Test the web interface
+open http://localhost:8000/simple
+
+# Test API endpoints
+curl -X POST http://localhost:8000/api/diagnose \
+  -H "Content-Type: application/json" \
+  -d '{"age": 5, "chief_complaint": "cough and fever"}'
+```
+
 ### Usage Examples
 ```bash
 # Quick consultation
@@ -99,6 +110,26 @@ Knowledge Base (PostgreSQL + Vector DB + Clinical Guidelines)
     ↓
 Security & Privacy (Encryption, Audit Logging, License Management)
 ```
+
+## 🚀 Deployment
+
+### Docker (Recommended)
+```bash
+# Build and run with Docker Compose
+docker-compose up -d
+
+# View logs
+docker-compose logs -f
+
+# Stop services
+docker-compose down
+```
+
+### Manual Deployment
+See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed deployment instructions for:
+- Cloud platforms (Render, Railway, DigitalOcean)
+- Self-hosted solutions
+- Production considerations
 
 ## 📋 Development Roadmap
 
