@@ -1,5 +1,5 @@
 [build]
-  command = "pip install -r requirements.txt && python -m pediassist.web_app"
+  command = "pip install -r requirements-netlify.txt && python -c \"from pediassist.web_app import app; print('Build successful')\""
   publish = "dist/"
   functions = "netlify/functions/"
 
