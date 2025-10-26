@@ -1,0 +1,18 @@
+# Render Deployment Configuration - Minimal
+services:
+  - type: web
+    name: pediassist-minimal
+    env: python
+    buildCommand: "pip install -r requirements-minimal.txt"
+    startCommand: "python -m pediassist.web_app"
+    envVars:
+      - key: ENVIRONMENT
+        value: production
+      - key: DATABASE_URL
+        value: sqlite:///./data/pediassist.db
+      - key: SECRET_KEY
+        generateValue: true
+      - key: LLM_PROVIDER
+        value: ollama
+      - key: MODEL
+        value: llama2
