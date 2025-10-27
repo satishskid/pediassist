@@ -41,3 +41,9 @@ cloudflare_*
 # Backup files
 *.backup
 *.bak
+
+# Exclude problematic build files that cause heavy dependency issues
+pyproject.toml
+uv.lock
+requirements-*.txt
+!requirements.txt
